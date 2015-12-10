@@ -9,13 +9,17 @@ $( document ).ready(function() {
   var roundCount = 0;
 
 
- $(".btn-warning").on("click", function() {
+ $(".btn-info").on("click", function() {
   
   roundCount++;
   $('#roundCount').html(roundCount);
 
   var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
   var userChoice = ($(this).attr("data-throw"));
+
+  $('#userChoice').html(" " + userChoice);
+  $('#computerChoice').html(" " + computerChoice);
+
 
   if (computerChoice === userChoice) {
    $('#endGameMessage').html('\'twas a tie');
