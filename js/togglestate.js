@@ -1,26 +1,25 @@
 $( document ).ready(function() {
+
    $("#toggleBtn").on("click", function() {
-    if($(this).attr("data-status") === "off") {
-      $("#game-running").html("Game is not running");
+    if($(this).attr("data-status") === "on") {
+
       $(this)
-        .html("SCENE ON")
-        .addClass("btn-danger")
-        .removeClass("btn-success")
-        .attr("data-status", "on");
-
-
-
-    } else {
-      $("#game-running").html("Game is running");
-      $(this)
-        .html("SCENE OFF")
+        .html("Play on")
         .addClass("btn-success")
         .removeClass("btn-danger")
         .attr("data-status", "off");
-        $(".btn-info").off();
-       
+
+
+    } else {
+      $(this)
+        .html("Game off")
+        .addClass("btn-danger")
+        .removeClass("btn-success")
+        .attr("data-status", "on");
+        $('.btn-info').off();
     }
   });
+
 
 
 });
