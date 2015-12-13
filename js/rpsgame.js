@@ -164,7 +164,7 @@ function changeUserGlyph () {
 function changeCompGlyph () {
 
   if (computerChoice === 'scissors') {
-    $('#computerHandChange').removeClass().addClass("fa fa-rotate-270 fa-hand-scissors-o fa-4x");
+    $('#computerHandChange').removeClass().addClass("fa fa-rotate-360 fa-hand-scissors-o fa-4x");
   } else if (computerChoice === 'paper') {
     $('#computerHandChange').removeClass().addClass("fa fa-rotate-270 fa-hand-paper-o fa-4x");
   } else if (computerChoice === 'rock') {
