@@ -138,6 +138,14 @@ function startAnimation() {
 
 }
 
+ $(".btn-info").hover(function () {
+    $(this).toggleClass("tossing");
+ }); 
+
+ $(".btn-warning").hover(function () {
+    $(this).toggleClass("pulse");
+ });
+
 
 function changeUserGlyph () {
   if (userChoice === 'scissors') {
