@@ -14,7 +14,7 @@ $( document ).ready(function() {
     $(".btn-info").on("click", function() {
 
       roundCount++;
-      $('#roundCount').html(roundCount);
+      $('#roundCount').html(" " + roundCount);
 
 
       startAnimation();
@@ -32,48 +32,45 @@ $( document ).ready(function() {
       if (computerChoice === userChoice) {
        $('#endGameMessage').html('\'twas a tie');
        ties++;
-       $('#ties').html(ties);
+       $('#ties').html(" " + ties);
      } 
      else if (computerChoice === 'rock' && userChoice === 'scissors') {
        $('#endGameMessage').html('Computer wins');
        computerScore++;
-       $('#computerScore').html(computerScore);
+       $('#computerScore').html(" " + computerScore);
        
      } 
      else if (computerChoice === 'scissors' && userChoice === 'paper') {
        $('#endGameMessage').html('Computer Wins');
        computerScore++;
-       $('#computerScore').html(computerScore);
+       $('#computerScore').html(" " + computerScore);
        
 
      } 
      else if (computerChoice === 'paper' && userChoice === 'rock') {
        $('#endGameMessage').html('Computer Wins');
        computerScore++;
-       $('#computerScore').html(computerScore);
+       $('#computerScore').html(" " + computerScore);
        
      } 
      else {
        $('#endGameMessage').html("User Wins");
        userScore++;
-       $('#userScore').html(userScore);
+       $('#userScore').html(" " + userScore);
      }
 
 
+//round end messages
 
+if (roundCount === 5) {
+  endGame();
+}
 
+if (roundCount === 10) {
+  endGame();
+}
 
-
-
-     if (roundCount === 5) {
-      endGame();
-    }
-
-    if (roundCount === 10) {
-      endGame();
-    }
-
-  });
+});
 }
 
 //code used to toggle Game on and off
@@ -142,18 +139,18 @@ function startAnimation() {
 
 }
 
- $(".btn-info").hover(function () {
-    $(this).toggleClass("tossing");
- }); 
+$(".btn-info").hover(function () {
+  $(this).toggleClass("tossing");
+}); 
 
- $(".btn-warning").hover(function () {
-    $(this).toggleClass("pulse");
- });
+$(".btn-warning").hover(function () {
+  $(this).toggleClass("pulse");
+});
 
 
 function changeUserGlyph () {
   if (userChoice === 'scissors') {
-    $('#userHandChange').removeClass().addClass("fa fa-rotate-90 fa-hand-scissors-o fa-4x");
+    $('#userHandChange').removeClass().addClass("fa fa-rotate-180 fa-hand-scissors-o fa-4x");
   } else if (userChoice === 'paper') {
     $('#userHandChange').removeClass().addClass("fa fa-rotate-90 fa-hand-paper-o fa-4x");
   } else if (userChoice === 'rock') {
