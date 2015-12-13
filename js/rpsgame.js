@@ -63,6 +63,7 @@ $("#toggleBtn").on("click", function() {
     .removeClass("btn-danger")
     .attr("data-status", "on");
     bindControls();
+    resetBtn();
 
 
   } else {
@@ -74,6 +75,15 @@ $("#toggleBtn").on("click", function() {
     $(".btn-info").off();
   }
 });
+
+
+function resetBtn (){
+$(".btn-warning").click(function(){
+  document.location.reload(true);
+});
+}
+
+
 
 //animations
 
