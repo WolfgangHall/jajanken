@@ -2,12 +2,13 @@ $( document ).ready(function() {
 
 
   var rpsValue = ['rock', 'paper', 'scissors'];
-
   var computerScore = 0;
   var ties = 0;
   var userScore = 0;
   var computerScore = 0;
   var roundCount = 0;
+
+
 
 
   function bindControls() {
@@ -16,6 +17,9 @@ $( document ).ready(function() {
 
       roundCount++;
       $('#roundCount').html(roundCount);
+      if (roundCount === 5) {
+        endGame();
+      }
 
       var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
       var userChoice = ($(this).attr("data-throw"));
@@ -50,6 +54,8 @@ $( document ).ready(function() {
        $('#userScore').html(userScore);
      }
    });
+
+
 }
 
 //code used to toggle Game on and off
@@ -65,7 +71,6 @@ $("#toggleBtn").on("click", function() {
     bindControls();
     resetBtn();
 
-
   } else {
     $(this)
     .html("Game off")
@@ -77,6 +82,8 @@ $("#toggleBtn").on("click", function() {
 });
 
 
+//button used to reload page only called when controls are bound
+
 function resetBtn (){
 $(".btn-warning").click(function(){
   document.location.reload(true);
@@ -84,8 +91,22 @@ $(".btn-warning").click(function(){
 }
 
 
+//modal that shows on game end
+function endGame () {
+  if (userScore === computerScore) {
+    $("#tieModal").modal("show");
+  } else if (computerScore > userScore) {
+    $("#loserModal").modal("show");
+  } else if (userScore > computerScore) {
+    $("#winnerModal").modal("show");
+  }
+}
+
+
+
 
 //animations
 
 
 });
+
