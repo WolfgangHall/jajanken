@@ -69,6 +69,10 @@ $( document ).ready(function() {
       endGame();
     }
 
+    if (roundCount === 10) {
+      endGame();
+    }
+
   });
 }
 
