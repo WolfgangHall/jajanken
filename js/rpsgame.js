@@ -21,12 +21,14 @@ $( document ).ready(function() {
         endGame();
       }
 
+      startAnimation();
+
+
       var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
       var userChoice = ($(this).attr("data-throw"));
 
       $('#userChoice').html(" " + userChoice);
       $('#computerChoice').html(" " + computerChoice);
-
 
       if (computerChoice === userChoice) {
        $('#endGameMessage').html('\'twas a tie');
@@ -85,9 +87,9 @@ $("#toggleBtn").on("click", function() {
 //button used to reload page only called when controls are bound
 
 function resetBtn (){
-$(".resetBtn").click(function(){
-  document.location.reload(true);
-});
+  $(".resetBtn").click(function(){
+    document.location.reload(true);
+  });
 }
 
 
@@ -100,6 +102,18 @@ function endGame () {
   } else if (userScore > computerScore) {
     $("#winnerModal").modal("show");
   }
+}
+
+function startAnimation() {  
+    $("#userHand").addClass('floating');  
+    setTimeout(function(){
+      $("#userHand").removeClass('floating')
+    },1600);
+    $("#computerHand").addClass('floating');  
+    setTimeout(function(){
+      $("#computerHand").removeClass('floating')
+    },1600);
+
 }
 
 
