@@ -85,7 +85,7 @@ $("#toggleBtn").on("click", function() {
 //button used to reload page only called when controls are bound
 
 function resetBtn (){
-$(".btn-warning").click(function(){
+$(".resetBtn").click(function(){
   document.location.reload(true);
 });
 }
