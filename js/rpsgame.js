@@ -9,26 +9,23 @@ $( document ).ready(function() {
   var roundCount = 0;
 
 
-
-
   function bindControls() {
 
     $(".btn-info").on("click", function() {
 
       roundCount++;
       $('#roundCount').html(roundCount);
-      if (roundCount === 5) {
-        endGame();
-      }
+
 
       startAnimation();
 
-
-      var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
       var userChoice = ($(this).attr("data-throw"));
+      var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
+
 
       $('#userChoice').html(" " + userChoice);
       $('#computerChoice').html(" " + computerChoice);
+
 
       if (computerChoice === userChoice) {
        $('#endGameMessage').html('\'twas a tie');
@@ -55,9 +52,12 @@ $( document ).ready(function() {
        userScore++;
        $('#userScore').html(userScore);
      }
+
+      if (roundCount === 5) {
+        endGame();
+      }
+
    });
-
-
 }
 
 //code used to toggle Game on and off
@@ -94,13 +94,23 @@ function resetBtn (){
 
 
 //modal that shows on game end
-function endGame () {
+function endGame() {
   if (userScore === computerScore) {
-    $("#tieModal").modal("show");
-  } else if (computerScore > userScore) {
+      setTimeout(function() {
+      $("#tieModal").modal("show");
+    }, 2300)
+  } 
+
+  else if (computerScore > userScore) {
+    setTimeout(function() {
     $("#loserModal").modal("show");
+  }, 2300)
+
   } else if (userScore > computerScore) {
+    setTimeout(function() {
     $("#winnerModal").modal("show");
+
+  }, 2300)
   }
 }
 
@@ -108,11 +118,11 @@ function startAnimation() {
     $("#userHand").addClass('floating');  
     setTimeout(function(){
       $("#userHand").removeClass('floating')
-    },1600);
+    },2000);
     $("#computerHand").addClass('floating');  
     setTimeout(function(){
       $("#computerHand").removeClass('floating')
-    },1600);
+    },2000);
 
 }
 
@@ -123,4 +133,9 @@ function startAnimation() {
 
 
 });
+
+
+
+
+
 
