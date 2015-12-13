@@ -19,13 +19,15 @@ $( document ).ready(function() {
 
       startAnimation();
 
-      var userChoice = ($(this).attr("data-throw"));
-      var computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
+      userChoice = ($(this).attr("data-throw"));
+      computerChoice = rpsValue[Math.floor(Math.random() * rpsValue.length)];
 
 
       $('#userChoice').html(" " + userChoice);
       $('#computerChoice').html(" " + computerChoice);
 
+      changeUserGlyph();
+      changeCompGlyph();
 
       if (computerChoice === userChoice) {
        $('#endGameMessage').html('\'twas a tie');
@@ -36,16 +38,20 @@ $( document ).ready(function() {
        $('#endGameMessage').html('Computer wins');
        computerScore++;
        $('#computerScore').html(computerScore);
+       
      } 
      else if (computerChoice === 'scissors' && userChoice === 'paper') {
        $('#endGameMessage').html('Computer Wins');
        computerScore++;
        $('#computerScore').html(computerScore);
+       
+
      } 
      else if (computerChoice === 'paper' && userChoice === 'rock') {
        $('#endGameMessage').html('Computer Wins');
        computerScore++;
        $('#computerScore').html(computerScore);
+       
      } 
      else {
        $('#endGameMessage').html("User Wins");
@@ -53,11 +59,17 @@ $( document ).ready(function() {
        $('#userScore').html(userScore);
      }
 
-      if (roundCount === 5) {
-        endGame();
-      }
 
-   });
+
+
+
+
+
+     if (roundCount === 5) {
+      endGame();
+    }
+
+  });
 }
 
 //code used to toggle Game on and off
@@ -96,40 +108,60 @@ function resetBtn (){
 //modal that shows on game end
 function endGame() {
   if (userScore === computerScore) {
-      setTimeout(function() {
+    setTimeout(function() {
       $("#tieModal").modal("show");
-    }, 2300)
+    }, 2000)
   } 
 
   else if (computerScore > userScore) {
     setTimeout(function() {
-    $("#loserModal").modal("show");
-  }, 2300)
+      $("#loserModal").modal("show");
+    }, 2000)
 
   } else if (userScore > computerScore) {
     setTimeout(function() {
-    $("#winnerModal").modal("show");
+      $("#winnerModal").modal("show");
 
-  }, 2300)
+    }, 2000)
   }
 }
 
 function startAnimation() {  
-    $("#userHand").addClass('floating');  
-    setTimeout(function(){
-      $("#userHand").removeClass('floating')
-    },2000);
-    $("#computerHand").addClass('floating');  
-    setTimeout(function(){
-      $("#computerHand").removeClass('floating')
-    },2000);
+  $("#userHand").addClass('floating');  
+  setTimeout(function(){
+    $("#userHand").removeClass('floating')
+  },1500);
+  $("#computerHand").addClass('floating');  
+  setTimeout(function(){
+    $("#computerHand").removeClass('floating')
+  },1500);
 
 }
 
 
+function changeUserGlyph () {
+  if (userChoice === 'scissors') {
+    $('#userHandChange').removeClass().addClass("fa fa-rotate-90 fa-hand-scissors-o fa-4x");
+  } else if (userChoice === 'paper') {
+    $('#userHandChange').removeClass().addClass("fa fa-rotate-90 fa-hand-paper-o fa-4x");
+  } else if (userChoice === 'rock') {
+    $('#userHandChange').removeClass().addClass("fa fa-rotate-90 fa-hand-rock-o fa-4x");
+  }
+}
+
+function changeCompGlyph () {
+
+  if (computerChoice === 'scissors') {
+    $('#computerHandChange').removeClass().addClass("fa fa-rotate-270 fa-hand-scissors-o fa-4x");
+  } else if (computerChoice === 'paper') {
+    $('#computerHandChange').removeClass().addClass("fa fa-rotate-270 fa-hand-paper-o fa-4x");
+  } else if (computerChoice === 'rock') {
+    $('#computerHandChange').removeClass().addClass("fa fa-rotate-270 fa-hand-rock-o fa-4x");
+  }
+
+}
 
 
-//animations
 
 
 });
