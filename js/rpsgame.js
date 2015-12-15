@@ -30,31 +30,31 @@ $( document ).ready(function() {
       changeCompGlyph();
 
       if (computerChoice === userChoice) {
-       $('#endGameMessage').html('\'twas a tie');
+       $('#endGameMessage').html('Tied round ' + roundCount);
        ties++;
        $('#ties').html(" " + ties);
      } 
      else if (computerChoice === 'rock' && userChoice === 'scissors') {
-       $('#endGameMessage').html('Computer wins');
+       $('#endGameMessage').html('Computer wins round ' + roundCount);
        computerScore++;
        $('#computerScore').html(" " + computerScore);
        
      } 
      else if (computerChoice === 'scissors' && userChoice === 'paper') {
-       $('#endGameMessage').html('Computer Wins');
+       $('#endGameMessage').html('Computer wins round ' + roundCount);
        computerScore++;
        $('#computerScore').html(" " + computerScore);
        
 
      } 
      else if (computerChoice === 'paper' && userChoice === 'rock') {
-       $('#endGameMessage').html('Computer Wins');
+       $('#endGameMessage').html('Computer wins round ' + roundCount);
        computerScore++;
        $('#computerScore').html(" " + computerScore);
        
      } 
      else {
-       $('#endGameMessage').html("User Wins");
+       $('#endGameMessage').html('User wins round ' + roundCount);
        userScore++;
        $('#userScore').html(" " + userScore);
      }
