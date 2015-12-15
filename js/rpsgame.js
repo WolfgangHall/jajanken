@@ -8,6 +8,8 @@ $( document ).ready(function() {
   var computerScore = 0;
   var roundCount = 0;
 
+  var fbase = new Firebase("https://shining-torch-4897.firebaseio.com");
+
 
   function bindControls() {
 
